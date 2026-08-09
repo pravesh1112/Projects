@@ -62,7 +62,7 @@ Dataset repository.
 
 Dataset source:
 
-https://github.com/YBIFoundation/Dataset/blob/main/Admission%20Chance.csv
+https://github.com/ybifoundation/Dataset
 
 ---
 
