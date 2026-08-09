@@ -1,7 +1,5 @@
 Chance of Admission for Higher Studies
-
 Predict the chances of admission of a student to a Graduate program based on:
-
 GRE Scores (290 to 340)
 TOEFL Scores (92 to 120)
 University Rating (1 to 5)
