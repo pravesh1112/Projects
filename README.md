@@ -1,72 +1,80 @@
 # 🎓 Chance of Admission for Higher Studies
 
-A Machine Learning project that predicts the **chance of admission of a student into a graduate program** based on academic performance, standardized test scores, university rating, recommendation strength, statement of purpose, and research experience.
+A Machine Learning regression project that predicts the **chance of admission
+to a graduate program** using academic performance, standardized test scores,
+university rating, recommendation strength, SOP, CGPA, and research experience.
+
+[![Open in Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pravesh1112/Projects/blob/main/Chance_of_admission.ipynb)
 
 ---
 
 ## 📌 Project Overview
 
-Applying for graduate programs can be highly competitive, and students often want to estimate their chances of admission based on their academic profile.
+Graduate admissions can be competitive, and students often want an estimate
+of their admission probability based on their academic profile.
 
-This project uses **Machine Learning regression techniques** to predict a student's probability of admission using factors such as:
+This project uses **Linear Regression** to estimate the `Chance of Admit`
+from the following applicant features:
 
-* GRE Score
-* TOEFL Score
-* University Rating
-* Statement of Purpose (SOP)
-* Letter of Recommendation (LOR)
-* Undergraduate CGPA
-* Research Experience
+- GRE Score
+- TOEFL Score
+- University Rating
+- Statement of Purpose (SOP)
+- Letter of Recommendation (LOR)
+- Undergraduate CGPA
+- Research Experience
 
-The predicted output is the estimated **Chance of Admit**.
+The complete analysis is implemented in a Google Colab/Jupyter Notebook.
 
 ---
 
 ## 🎯 Objective
 
-The main objective of this project is to:
+The objectives of this project are to:
 
-1. Explore and understand the admission dataset.
-2. Perform data preprocessing and exploratory data analysis.
-3. Identify relationships between different features and admission probability.
-4. Train a Machine Learning regression model.
-5. Evaluate model performance using appropriate metrics.
-6. Predict the probability of admission for new student profiles.
+1. Load and understand the admission dataset.
+2. Perform basic data exploration and analysis.
+3. Select relevant features for prediction.
+4. Split the data into training and testing sets.
+5. Train a Linear Regression model.
+6. Generate predictions on unseen test data.
+7. Evaluate the model using regression metrics.
 
 ---
 
 ## 📊 Dataset
 
-The dataset contains information about students applying for graduate programs.
+The dataset contains **400 student records**.
 
-### Features
+| Feature | Description |
+|---|---|
+| GRE Score | Graduate Record Examination score |
+| TOEFL Score | TOEFL examination score |
+| University Rating | University rating from 1 to 5 |
+| SOP | Statement of Purpose rating |
+| LOR | Letter of Recommendation rating |
+| CGPA | Undergraduate CGPA |
+| Research | Research experience (0 = No, 1 = Yes) |
+| Chance of Admit | Target variable representing admission probability |
 
-| Feature           | Description                                 |
-| ----------------- | ------------------------------------------- |
-| GRE Score         | Graduate Record Examination score           |
-| TOEFL Score       | TOEFL examination score                     |
-| University Rating | Rating of the university                    |
-| SOP               | Strength of Statement of Purpose            |
-| LOR               | Strength of Letter of Recommendation        |
-| CGPA              | Undergraduate CGPA                          |
-| Research          | Whether the student has research experience |
-| Chance of Admit   | Estimated probability of admission          |
+The original notebook loads the dataset directly from the YBI Foundation
+Dataset repository.
 
-### Target Variable
+Dataset source:
 
-**Chance of Admit** — the predicted probability of admission.
+https://github.com/ybifoundation/Dataset
 
 ---
 
 ## 🛠️ Technologies Used
 
-* Python
-* Jupyter Notebook / Google Colab
-* NumPy
-* Pandas
-* Matplotlib
-* Seaborn
-* Scikit-learn
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Google Colab / Jupyter Notebook
 
 ---
 
@@ -77,81 +85,89 @@ Dataset
    ↓
 Data Loading
    ↓
-Data Cleaning
+Data Inspection
    ↓
-Exploratory Data Analysis
+Exploratory Analysis
    ↓
 Feature Selection
    ↓
 Train-Test Split
    ↓
-Model Training
-   ↓
-Model Evaluation
+Linear Regression
    ↓
 Prediction
+   ↓
+Model Evaluation
 ```
 
 ---
 
-## 📈 Exploratory Data Analysis
+## 🤖 Machine Learning Model
 
-The project analyzes the relationships between student profiles and their admission chances using:
+### Linear Regression
 
-* Distribution plots
-* Scatter plots
-* Correlation analysis
-* Heatmaps
-* Feature-wise analysis
+The project uses `LinearRegression` from Scikit-learn.
 
-These visualizations help understand which factors have a stronger relationship with the probability of admission.
+The model learns the relationship between the selected applicant features
+and the target variable `Chance of Admit`.
 
----
+The notebook uses the following seven predictive features:
 
-## 🤖 Machine Learning
+```text
+GRE Score
+TOEFL Score
+University Rating
+SOP
+LOR
+CGPA
+Research
+```
 
-The dataset is divided into training and testing sets.
-
-The selected Machine Learning regression model is trained on the training data and evaluated on unseen test data.
-
-### Evaluation Metrics
-
-The model can be evaluated using metrics such as:
-
-* Mean Absolute Error (MAE)
-* Mean Squared Error (MSE)
-* Root Mean Squared Error (RMSE)
-* R² Score
+The `Serial No` column is treated as an identifier and is not used for
+prediction.
 
 ---
 
-## 🚀 How to Run the Project
+## 📈 Model Evaluation
 
-### Option 1 — Google Colab
+The current notebook reports the following results on its test set:
 
-Open the notebook in Google Colab and run the cells sequentially.
+| Metric | Result |
+|---|---:|
+| Mean Absolute Error (MAE) | 0.04400 |
+| Mean Absolute Percentage Error (MAPE) | 0.07575 |
+| Mean Squared Error (MSE) | 0.00404 |
 
-### Option 2 — Local Environment
+These values are based on the current notebook run and can change if the
+train/test split or model configuration is changed.
+
+---
+
+## 🚀 How to Run
+
+### Google Colab
+
+1. Open the notebook using the **Open in Google Colab** button above.
+2. Run the cells from top to bottom.
+3. The dataset is loaded from its online source.
+4. Review the analysis, predictions, and evaluation metrics.
+
+### Run Locally
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/pravesh1112/Projects.git
-```
-
-Navigate to the project directory:
-
-```bash
 cd Projects
 ```
 
-Install the required dependencies:
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Launch Jupyter Notebook:
+Start Jupyter:
 
 ```bash
 jupyter notebook
@@ -163,54 +179,64 @@ Open:
 Chance_of_admission.ipynb
 ```
 
-and run the notebook cells.
-
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```text
 Projects/
 │
 ├── Chance_of_admission.ipynb
-├── data/
-│   └── admission_data.csv
-├── images/
-│   └── project_visualizations
+├── README.md
 ├── requirements.txt
+├── DATASET.md
 ├── .gitignore
-├── LICENSE
-└── README.md
+└── LICENSE
 ```
 
 ---
 
-## 💡 Key Insights
+## 💡 Key Takeaways
 
-The analysis helps demonstrate how academic performance, standardized test scores, university rating, recommendation strength, SOP quality, and research experience can influence graduate admission probability.
+The project demonstrates a complete beginner-to-intermediate Machine Learning
+workflow:
+
+- Working with a real-world tabular dataset
+- Data inspection using Pandas
+- Exploratory analysis
+- Feature selection
+- Train-test splitting
+- Regression model training
+- Generating predictions
+- Evaluating regression performance
 
 ---
 
 ## 🔮 Future Improvements
 
-Possible improvements include:
+Potential improvements for the project include:
 
-* Comparing multiple regression algorithms.
-* Performing hyperparameter tuning.
-* Applying feature scaling where appropriate.
-* Adding cross-validation.
-* Building an interactive prediction interface.
-* Deploying the model as a web application.
-* Adding a student profile prediction form.
-* Improving model interpretability using feature importance or SHAP.
+- Compare Linear Regression with Random Forest, Decision Tree, and Gradient
+  Boosting models.
+- Add cross-validation.
+- Perform hyperparameter tuning.
+- Add an R² score and residual analysis.
+- Create a reusable prediction function.
+- Build an interactive Streamlit application.
+- Deploy the prediction model as a web application.
 
 ---
 
-## 📌 Limitations
+## ⚠️ Disclaimer
 
-The prediction generated by this project should be treated as an **estimate**, not a guaranteed admission decision.
+The model provides an **estimated admission probability** based only on the
+features available in the dataset. It should not be treated as a guaranteed
+admission decision.
 
-Actual admission decisions may depend on many additional factors that are not included in the dataset.
+Actual admission decisions can depend on many additional factors such as
+university-specific requirements, applicant pool, program competitiveness,
+essays, recommendations, work experience, and other information not included
+in this dataset.
 
 ---
 
@@ -218,10 +244,10 @@ Actual admission decisions may depend on many additional factors that are not in
 
 **Pravesh Jangra**
 
-GitHub: [@pravesh1112](https://github.com/pravesh1112)
+GitHub: https://github.com/pravesh1112
 
 ---
 
-## ⭐ If You Found This Project Useful
+## ⭐ Support
 
-Consider giving this repository a ⭐ on GitHub!
+If you find this project useful, consider giving the repository a ⭐ on GitHub.
